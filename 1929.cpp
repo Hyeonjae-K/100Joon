@@ -1,8 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define N 10001
-#include <iostream>
-
-using namespace std;
+#define N 1000001
+#include <stdio.h>
 
 void check(int end, bool A[]) {
 	for (int i = 2; i * i <= end; i++) {
@@ -15,29 +13,18 @@ void check(int end, bool A[]) {
 }
 
 void print(int start, int end, bool A[]) {
-	int sum = 0, min = -1;
-
 	for (int i = start; i <= end; i++) {
 		if (A[i] == false) {
-			if (min == -1) {
-				min = i;
-			}
-			sum += i;
+			printf("%d\n", i);
 		}
-	}
-
-	if (min == -1) {
-		cout << -1 << endl;
-	}
-	else {
-		cout << sum << endl << min << endl;
 	}
 }
 
 int main() {
 	bool PrimeArr[N] = { true, true };
 	int start, end;
-	cin >> start >> end;
+	scanf("%d %d", &start, &end);
+
 	check(end, PrimeArr);
 	print(start, end, PrimeArr);
 
